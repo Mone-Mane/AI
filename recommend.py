@@ -1,9 +1,19 @@
 import joblib
 import pandas as pd
 
-# 모델과 LabelEncoder 불러오기
-loaded_model = joblib.load('random_forest_model.pkl')
-loaded_le = joblib.load('label_encoder.pkl')
+# # 모델과 LabelEncoder 불러오기
+# loaded_model = joblib.load('random_forest_model.pkl')
+# loaded_le = joblib.load('label_encoder.pkl')
+
+import pickle
+
+# 모델 불러오기
+with open('random_forest_model.pkl', 'rb') as model_file:
+    loaded_model = pickle.load(model_file)
+
+# LabelEncoder 불러오기
+with open('label_encoder.pkl', 'rb') as le_file:
+    loaded_le = pickle.load(le_file)
 
 # 새로운 데이터 예시
 new_data = pd.DataFrame([{

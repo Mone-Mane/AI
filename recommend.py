@@ -1,10 +1,4 @@
-import joblib
 import pandas as pd
-
-# # 모델과 LabelEncoder 불러오기
-# loaded_model = joblib.load('random_forest_model.pkl')
-# loaded_le = joblib.load('label_encoder.pkl')
-
 import pickle
 
 # 모델 불러오기

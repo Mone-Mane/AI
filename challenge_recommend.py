@@ -2,7 +2,6 @@ import pandas as pd
 from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
-import joblib
 import pickle
 
 
@@ -79,11 +78,6 @@ predicted_label_name = le.inverse_transform(predicted_label)
 print(predicted_label_name)
 
 
-
-# # 모델 저장
-# joblib.dump(clf, 'random_forest_model.pkl')
-# joblib.dump(le, 'label_encoder.pkl')
-
 # 모델 저장
 with open('random_forest_model.pkl', 'wb') as model_file:
     pickle.dump(clf, model_file)
@@ -92,30 +86,4 @@ with open('random_forest_model.pkl', 'wb') as model_file:
 with open('label_encoder.pkl', 'wb') as le_file:
     pickle.dump(le, le_file)
 
-# # 모델 불러오기
-# loaded_model = joblib.load('random_forest_model.pkl')
 
-# # 새로운 데이터 예시
-# new_data = pd.DataFrame([{
-#   "쇼핑": 0.36,
-#   "쇼핑_weight": 0.95,
-#   "배달": 0.14,
-#   "배달_weight": 0.83,
-#   "오락": 0.06,
-#   "오락_weight": 0.7,
-#   "술": 0.05,
-#   "술_weight": 0.6,
-#   "야식": 0.07,
-#   "야식_weight": 0.4,
-#   "카페": 0.045,
-#   "카페_weight": 0.3,
-#   "구독서비스": 0.02,
-#   "구독서비스_weight": 0.1,
-#   "택시": 0.013,
-#   "택시_weight": 0.0
-# }])
-
-# # 예측
-# predicted_label = loaded_model.predict(new_data)
-# predicted_label_name = le.inverse_transform(predicted_label)
-# print(predicted_label_name)
